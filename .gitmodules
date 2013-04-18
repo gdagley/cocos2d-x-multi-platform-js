@@ -1,0 +1,3 @@
+[submodule "externals/cocos2d-x"]
+	path = externals/cocos2d-x
+	url = git://github.com/cocos2d/cocos2d-x.git
