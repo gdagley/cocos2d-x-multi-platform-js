@@ -166,7 +166,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		15A3D2EC1682F076002FB0C5 /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = ../../../cocos2dx/proj.ios/cocos2dx.xcodeproj; sourceTree = "<group>"; };
+		15A3D2EC1682F076002FB0C5 /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = ../cocos2d-x/cocos2dx/proj.ios/cocos2dx.xcodeproj; sourceTree = "<group>"; };
 		15A3D2FA1682F0A0002FB0C5 /* cocos2d_specifics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cocos2d_specifics.cpp; sourceTree = "<group>"; };
 		15A3D2FB1682F0A0002FB0C5 /* cocos2d_specifics.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cocos2d_specifics.hpp; sourceTree = "<group>"; };
 		15A3D2FC1682F0A0002FB0C5 /* cocosjs_manual_conversions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cocosjs_manual_conversions.cpp; sourceTree = "<group>"; };
@@ -497,7 +497,7 @@
 				15A3D31D1682F0A0002FB0C5 /* uthash.h */,
 			);
 			name = bindings;
-			path = ../../../scripting/javascript/bindings;
+			path = ../cocos2d-x/scripting/javascript/bindings;
 			sourceTree = "<group>";
 		};
 		15A3D2FE1682F0A0002FB0C5 /* generated */ = {
@@ -540,7 +540,7 @@
 				15A3D35E1682F0B5002FB0C5 /* src */,
 			);
 			name = chipmunk;
-			path = ../../../external/chipmunk;
+			path = ../cocos2d-x/external/chipmunk;
 			sourceTree = "<group>";
 		};
 		15A3D3351682F0B5002FB0C5 /* include */ = {
@@ -644,7 +644,7 @@
 				15A3D3C31682F0D3002FB0C5 /* ios */,
 			);
 			name = CocosDenshion;
-			path = ../../../CocosDenshion;
+			path = ../cocos2d-x/CocosDenshion;
 			sourceTree = "<group>";
 		};
 		15A3D3C01682F0D3002FB0C5 /* include */ = {
@@ -684,7 +684,7 @@
 				15A3D5151682F1A4002FB0C5 /* physics_nodes */,
 			);
 			name = extensions;
-			path = ../../../extensions;
+			path = ../cocos2d-x/extensions;
 			sourceTree = "<group>";
 		};
 		15A3D4AB1682F1A4002FB0C5 /* CCBReader */ = {
@@ -1192,19 +1192,19 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../cocos2dx\"",
-					"\"$(SRCROOT)/../../../cocos2dx/kazmath/include\"",
-					"\"$(SRCROOT)/../../../CocosDenshion/include\"",
+					"\"$(SRCROOT)/../cocos2d-x/cocos2dx\"",
+					"\"$(SRCROOT)/../cocos2d-x/cocos2dx/kazmath/include\"",
+					"\"$(SRCROOT)/../cocos2d-x/CocosDenshion/include\"",
 					"\"$(SDKROOT)/usr/include/libxml2\"",
-					"$(SRCROOT)/../../../cocos2dx/include",
-					"$(SRCROOT)/../../../cocos2dx/platform/ios",
-					"$(SRCROOT)/../../../external/chipmunk/include/chipmunk",
-					"$(SRCROOT)/../../../scripting/javascript/spidermonkey-ios/include",
-					"$(SRCROOT)/../../../scripting/javascript/bindings",
+					"$(SRCROOT)/../cocos2d-x/cocos2dx/include",
+					"$(SRCROOT)/../cocos2d-x/cocos2dx/platform/ios",
+					"$(SRCROOT)/../cocos2d-x/external/chipmunk/include/chipmunk",
+					"$(SRCROOT)/../cocos2d-x/scripting/javascript/spidermonkey-ios/include",
+					"$(SRCROOT)/../cocos2d-x/scripting/javascript/bindings",
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../../../scripting/javascript/spidermonkey-ios/lib\"";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../cocos2d-x/scripting/javascript/spidermonkey-ios/lib\"";
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-lz",
@@ -1233,19 +1233,19 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../cocos2dx\"",
-					"\"$(SRCROOT)/../../../cocos2dx/kazmath/include\"",
-					"\"$(SRCROOT)/../../../CocosDenshion/include\"",
+					"\"$(SRCROOT)/../cocos2d-x/cocos2dx\"",
+					"\"$(SRCROOT)/../cocos2d-x/cocos2dx/kazmath/include\"",
+					"\"$(SRCROOT)/../cocos2d-x/CocosDenshion/include\"",
 					"\"$(SDKROOT)/usr/include/libxml2\"",
-					"$(SRCROOT)/../../../cocos2dx/include",
-					"$(SRCROOT)/../../../cocos2dx/platform/ios",
-					"$(SRCROOT)/../../../external/chipmunk/include/chipmunk",
-					"$(SRCROOT)/../../../scripting/javascript/spidermonkey-ios/include",
-					"$(SRCROOT)/../../../scripting/javascript/bindings",
+					"$(SRCROOT)/../cocos2d-x/cocos2dx/include",
+					"$(SRCROOT)/../cocos2d-x/cocos2dx/platform/ios",
+					"$(SRCROOT)/../cocos2d-x/external/chipmunk/include/chipmunk",
+					"$(SRCROOT)/../cocos2d-x/scripting/javascript/spidermonkey-ios/include",
+					"$(SRCROOT)/../cocos2d-x/scripting/javascript/bindings",
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../../../scripting/javascript/spidermonkey-ios/lib\"";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../cocos2d-x/scripting/javascript/spidermonkey-ios/lib\"";
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-lz",
