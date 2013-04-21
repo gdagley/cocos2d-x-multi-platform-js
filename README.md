@@ -27,7 +27,7 @@ I wanted to keep the ability to use the official cocos2d-x source or change the 
 
 ## To do:
 
-* Make it easy to rename the project (files, folders, references)
+* Make it easy to rename the project (files, folders, references) [Issue #1](https://github.com/gdagley/cocos2d-x-multi-platform-js/issues/1)
 * Make it easy to make sure latest shared Javascript source and assets are available in each platform build.
 * Make it easy to test the Javascript code.
 * Provide examples of custom JS bindings
