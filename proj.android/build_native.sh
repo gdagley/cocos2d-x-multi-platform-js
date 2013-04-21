@@ -70,7 +70,7 @@ mkdir "$APP_ANDROID_ROOT"/assets
 mkdir "$APP_ANDROID_ROOT"/assets/res
 
 # copy Resources/* into assets' root
-cp -rf "$APP_ROOT"/Resources/* "$APP_ANDROID_ROOT"/assets
+cp -rf "$APP_ROOT"/shared/Resources/* "$APP_ANDROID_ROOT"/assets
 
 
 # copy bindings/*.js into assets' root

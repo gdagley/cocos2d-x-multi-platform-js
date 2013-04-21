@@ -112,7 +112,7 @@
 		<link>
 			<name>Classes</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Classes</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/shared/Classes</locationURI>
 		</link>
 		<link>
 			<name>cocos2dx</name>
