@@ -2,6 +2,29 @@ This is an attempt to create pull the [multi-platform Cocos2d-x Javascript templ
 
 **This is a work in progress and is still open to changes in project structure.**
 
+## Getting Started
+
+		git clone https://github.com/gdagley/cocos2d-x-multi-platform-js my_new_project_name
+		cd my_new_project_name
+		git submodule update --init --recursive
+		TDB: change references to HelloJavascript
+
+### iOS
+
+Open the Xcode project file in the proj.ios folder.
+
+### Android
+
+Follow the instructions in the [proj.android/README](https://github.com/gdagley/cocos2d-x-multi-platform-js/tree/master/proj.android).
+
+## Reasoning
+
+### Why use a symlink to the cocos2d-x in the externals folder?
+
+I wanted to keep the ability to use the official cocos2d-x source or change the symlink to point to a fork of mine. This may be overkill and I am open to suggestions.
+
+### What else?
+
 ## To do:
 
 * Make it easy to rename the project (files, folders, references)
