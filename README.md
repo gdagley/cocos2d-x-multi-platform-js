@@ -17,14 +17,6 @@ Open the Xcode project file in the proj.ios folder.
 
 Follow the instructions in the [proj.android/README](https://github.com/gdagley/cocos2d-x-multi-platform-js/tree/master/proj.android).
 
-## Reasoning
-
-### Why use a symlink to the cocos2d-x in the externals folder?
-
-I wanted to keep the ability to use the official cocos2d-x source or change the symlink to point to a fork of mine. This may be overkill and I am open to suggestions.
-
-### What else?
-
 ## To do:
 
 * Make it easy to rename the project (files, folders, references) [Issue #1](https://github.com/gdagley/cocos2d-x-multi-platform-js/issues/1)

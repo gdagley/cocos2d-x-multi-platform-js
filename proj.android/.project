@@ -133,7 +133,7 @@
 	<variableList>
 		<variable>
 			<name>COCOS2DX</name>
-			<value>$%7BPARENT-1-PROJECT_LOC%7D/cocos2d-x</value>
+			<value>$%7BPARENT-1-PROJECT_LOC%7D/externals/cocos2d-x</value>
 		</variable>
 	</variableList>
 </projectDescription>

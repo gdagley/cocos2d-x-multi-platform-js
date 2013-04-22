@@ -45,7 +45,7 @@ fi
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # ... use paths relative to current directory
-COCOS2DX_ROOT="$DIR/../cocos2d-x"
+COCOS2DX_ROOT="$DIR/../externals/cocos2d-x"
 APP_ROOT="$DIR/.."
 APP_ANDROID_ROOT="$DIR"
 BINDINGS_JS_ROOT="$COCOS2DX_ROOT/scripting/javascript/bindings/js"
