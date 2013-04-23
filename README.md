@@ -22,7 +22,6 @@ Follow the instructions in the [proj.android/README](https://github.com/gdagley/
 
 ## To do:
 
-* Make it easy to rename the project (files, folders, references) [Issue #1](https://github.com/gdagley/cocos2d-x-multi-platform-js/issues/1)
 * Make it easy to make sure latest shared Javascript source and assets are available in each platform build.
 * Make it easy to test the Javascript code.
 * Provide examples of custom JS bindings
