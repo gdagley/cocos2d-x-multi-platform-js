@@ -20,6 +20,10 @@ Open the Xcode project file in the proj.ios folder.
 
 Follow the instructions in the [proj.android/README](https://github.com/gdagley/cocos2d-x-multi-platform-js/tree/master/proj.android).
 
+### Web/HTML
+
+		adsf -r published/HTML
+
 ## To do:
 
 * Make it easy to make sure latest shared Javascript source and assets are available in each platform build.
