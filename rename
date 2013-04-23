@@ -12,62 +12,83 @@ class Rename < Thor
 
 	desc 'project', 'replace references to HelloJavascript'
 	def project
-		@original_project_name = "HelloJavascript"
-		@original_project_identifier = "org.cocos2dx.hellojavascript"
+		begin
+			@original_project_name = "HelloJavascript"
+			@original_project_identifier = "org.cocos2dx.hellojavascript"
 
-		default_project_name = File.basename(destination_root).underscore.camelize
-		@project_name = ask("What is the new project name? [#{default_project_name}]") 
-		@project_name = default_project_name if @project_name.blank?
+			default_project_name = File.basename(destination_root).underscore.camelize
+			@project_name = ask("What is the new project name? (Camelcase, no spaces) [#{default_project_name}]") 
+			@project_name = default_project_name if @project_name.blank?
 
-		default_project_identifier = "com.companyname.#{@project_name.downcase}"
-		@project_identifier = ask("What is the new project identifier? [#{default_project_identifier}]")
-		@project_identifier = default_project_identifier if @project_identifier.blank?
+			default_project_identifier = "com.companyname.#{@project_name.downcase}"
+			@project_identifier = ask("What is the new project identifier? [#{default_project_identifier}]")
+			@project_identifier = default_project_identifier if @project_identifier.blank?
 
-		puts "Project Name:       #{@project_name}"
-		puts "Project Identifier: #{@project_identifier}"
+			puts "Project Name:       #{@project_name}"
+			puts "Project Identifier: #{@project_identifier}"
 
-		if yes?("Are these settings correct?")
-			fix_android
-		end
+			if yes?("Are these settings correct?")
+				fix_android
+				fix_ios
+				try_again = false
+			else
+				try_again = yes?("Try again?")
+			end
+		end while try_again
 	end
 
+	no_commands do
+		def fix_android
+				original_project_directories = @original_project_identifier.split('.')
+				orig_android_source_dir = File.join ["proj.android", "src"] + original_project_directories
+				orig_android_jni_dir = File.join ["proj.android", "jni", original_project_directories.last]
 
-# proj.android/.project:3:	<name>HelloJavascript</name>
-# proj.android/AndroidManifest.xml:13:        <activity android:name=".HelloJavascript"
-# proj.android/build.xml:2:<project name="HelloJavascript" default="help">
-# proj.android/build_native.sh:1:APPNAME="HelloJavascript"
-# proj.android/res/values/strings.xml:3:    <string name="app_name">HelloJavascript</string>
-# proj.android/src/org/cocos2dx/hellojavascript/HelloJavascript.java:30:public class HelloJavascript extends Cocos2dxActivity{
-	def fix_android
-			original_project_directories = @original_project_identifier.split('.')
-			orig_android_source_dir = File.join ["proj.android", "src"] + original_project_directories
-			orig_android_jni_dir = File.join ["proj.android", "jni", original_project_directories.last]
+				new_directories = @project_identifier.split('.')
+				new_android_source_dir = File.join ["proj.android", "src"] + new_directories
+				new_android_jni_dir = File.join ["proj.android", "jni", new_directories.last]
 
-			new_directories = @project_identifier.split('.')
-			new_android_source_dir = File.join ["proj.android", "src"] + new_directories
-			new_android_jni_dir = File.join ["proj.android", "jni", new_directories.last]
+				directory orig_android_source_dir, new_android_source_dir
+				directory orig_android_jni_dir, new_android_jni_dir
 
-			directory orig_android_source_dir, new_android_source_dir
-			directory orig_android_jni_dir, new_android_jni_dir
+				orig_android_activity = File.join new_android_source_dir, "#{@original_project_name}.java"
+				new_android_activity = File.join new_android_source_dir, "#{@project_name}.java"
 
-			orig_android_activity = File.join new_android_source_dir, "#{@original_project_name}.java"
-			new_android_activity = File.join new_android_source_dir, "#{@project_name}.java"
+				FileUtils.mv orig_android_activity, new_android_activity
 
-			FileUtils.mv orig_android_activity, new_android_activity
+				FileUtils.rm_rf orig_android_source_dir
+				FileUtils.rm_rf orig_android_jni_dir
 
-			FileUtils.rm_rf orig_android_source_dir
-			FileUtils.rm_rf orig_android_jni_dir
+				# proj.android/.project:3:	<name>HelloJavascript</name>
+				# proj.android/AndroidManifest.xml:13:        <activity android:name=".HelloJavascript"
+				# proj.android/build.xml:2:<project name="HelloJavascript" default="help">
+				# proj.android/build_native.sh:1:APPNAME="HelloJavascript"
+				# proj.android/res/values/strings.xml:3:    <string name="app_name">HelloJavascript</string>
+				# proj.android/src/org/cocos2dx/hellojavascript/HelloJavascript.java:30:public class HelloJavascript extends Cocos2dxActivity{
+				[ File.join("proj.android", ".project"), File.join("proj.android", "AndroidManifest.xml"), 
+					File.join("proj.android", "build.xml"), File.join("proj.android", "build_native.sh"), 
+					File.join("proj.android", "res", "values", "strings.xml"), new_android_activity].each do |path|
+						gsub_file(path, @original_project_name, @project_name)
+				end
 
-			[ "proj.android/.project", "proj.android/AndroidManifest.xml", "proj.android/build.xml", 
-				"proj.android/build_native.sh", "proj.android/res/values/strings.xml", new_android_activity].each do |path|
-					gsub_file(path, @original_project_name, @project_name)
-			end
+				["proj.android/AndroidManifest.xml", new_android_activity].each do |path|
+					gsub_file path, @original_project_identifier, @project_identifier
+				end
 
-			["proj.android/AndroidManifest.xml", new_android_activity].each do |path|
-				gsub_file path, @original_project_identifier, @project_identifier
-			end
-			
-			gsub_file "proj.android/jni/Android.mk", original_project_directories.last, new_directories.last
+				gsub_file File.join("proj.android", "jni", "Android.mk"), original_project_directories.last, new_directories.last
+		end
+
+		def fix_ios
+			orig_xcode_proj = File.join "proj.ios", "#{@original_project_name}.xcodeproj"
+			new_xcode_proj = File.join "proj.ios", "#{@project_name}.xcodeproj"
+
+			FileUtils.mv orig_xcode_proj, new_xcode_proj
+
+			gsub_file File.join(new_xcode_proj, "project.pbxproj"), @original_project_name, @project_name
+			gsub_file File.join("proj.ios", "Prefix.pch"), @original_project_name, @project_name
+			gsub_file File.join("proj.ios", "Info.plist"), @original_project_identifier, @project_identifier
+
+			gsub_file File.join(new_xcode_proj, "project.xcworkspace", "contents.xcworkspacedata"), @original_project_name, @project_name
+		end
 	end
 end
 
