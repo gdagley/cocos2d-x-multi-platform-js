@@ -1,4 +1,4 @@
-This is an attempt to create pull the [multi-platform Cocos2d-x Javascript template](https://github.com/cocos2d/cocos2d-x/tree/master/template/multi-platform-js) out and set it up in a way that it could easily bootstrap a new project.
+This was an attempt topull the [multi-platform Cocos2d-x Javascript template](https://github.com/cocos2d/cocos2d-x/tree/master/template/multi-platform-js) out and set it up in a way that it could easily bootstrap a new project.  It has since morphed into my starter project for multiplatform [Cocos2d-x](http://www.cocos2d-x.org/) projects with Javascript and [Cocosbuilder](http://cocosbuilder.com/).  This may or may not be what you are looking for.  If it is, try it out and let me know what is missing or still needs work.
 
 **This is a work in progress and is still open to changes in project structure.**
 
