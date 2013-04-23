@@ -75,7 +75,6 @@ bool AppDelegate::applicationDidFinishLaunching()
         }
         else if (screenSize.height > 320)
         {
-            resourceSize = CCSizeMake(320, 480);
             resDirOrders.push_back("resources-medium");
             resDirOrders.push_back("resources-small");
         }
