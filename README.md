@@ -7,7 +7,10 @@ This is an attempt to create pull the [multi-platform Cocos2d-x Javascript templ
 		git clone https://github.com/gdagley/cocos2d-x-multi-platform-js my_new_project_name
 		cd my_new_project_name
 		git submodule update --init --recursive
-		TDB: change references to HelloJavascript
+		# change references to HelloJavascript
+		gem install bundler
+		bundle install
+		./rename project
 
 ### iOS
 
