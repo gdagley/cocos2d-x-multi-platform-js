@@ -28,6 +28,7 @@ class Rename < Thor
 			puts "Project Identifier: #{@project_identifier}"
 
 			if yes?("Are these settings correct?")
+				fix_shared
 				fix_android
 				fix_ios
 				try_again = false
@@ -38,6 +39,19 @@ class Rename < Thor
 	end
 
 	no_commands do
+		def fix_shared
+			orig_shared_dir = File.join "shared", @original_project_name 
+			new_shared_dir = File.join "shared", @project_name
+
+			FileUtils.mv orig_shared_dir, new_shared_dir
+
+			orig_cocosbuilder_project = File.join new_shared_dir, "#{@original_project_name}.ccbproj"
+			new_cocosbuilder_project = File.join new_shared_dir, "#{@project_name}.ccbproj"
+
+			FileUtils.mv orig_cocosbuilder_project, new_cocosbuilder_project
+
+		end
+
 		def fix_android
 				original_project_directories = @original_project_identifier.split('.')
 				orig_android_source_dir = File.join ["proj.android", "src"] + original_project_directories
@@ -55,8 +69,8 @@ class Rename < Thor
 
 				FileUtils.mv orig_android_activity, new_android_activity
 
-				FileUtils.rm_rf orig_android_source_dir
-				FileUtils.rm_rf orig_android_jni_dir
+				remove_file orig_android_source_dir
+				remove_file orig_android_jni_dir
 
 				# proj.android/.project:3:	<name>HelloJavascript</name>
 				# proj.android/AndroidManifest.xml:13:        <activity android:name=".HelloJavascript"
