@@ -365,7 +365,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>clickme.png</string>
+									<string>images/clickme.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -376,7 +376,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>clickme-down.png</string>
+									<string>images/clickme-down.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -387,10 +387,12 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>clickme-down.png</string>
+									<string>images/clickme-down.png</string>
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>

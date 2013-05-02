@@ -23,7 +23,7 @@
 	<key>javascriptBased</key>
 	<true/>
 	<key>javascriptMainCCB</key>
-	<string>MainScene</string>
+	<string>interface/MainScene</string>
 	<key>onlyPublishCCBs</key>
 	<false/>
 	<key>publishDirectory</key>
@@ -70,7 +70,7 @@
 	<array>
 		<dict>
 			<key>path</key>
-			<string>Resources</string>
+			<string>.</string>
 		</dict>
 	</array>
 </dict>
