@@ -34,4 +34,4 @@ Follow the instructions in the [proj.android/README](https://github.com/gdagley/
 ## Known Issues:
 
 * Current cocos2d-x is [cocos2d-2.1rc0-x-2.1.2](https://github.com/cocos2d/cocos2d-x/tree/cocos2d-2.1rc0-x-2.1.2)
-* proj.win32 has not been fixed and tested.
+* proj.win32 has been removed until it can be fixed and tested.
